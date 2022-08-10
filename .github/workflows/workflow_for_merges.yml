@@ -18,3 +18,22 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo 'test 3'
+      - run: |
+          if [[ $GITHUB_REF_NAME == 'master' ]]; then
+            echo "ENV_NAME=staging" >> $GITHUB_ENV
+          else
+            echo "ENV_NAME=$GITHUB_REF_NAME" >> $GITHUB_ENV
+          fi
+      - run: echo '$ENV_NAME'
+      
+  End_to_End_test:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v3
+      
+  BDD_Scenarios:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps: 
+      - uses: actions/checkout@v3
