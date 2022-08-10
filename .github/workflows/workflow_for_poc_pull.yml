@@ -1,4 +1,4 @@
-name: REPO Build and Tests
+name: Workflow for Pull_request and POC
 on:
   workflow_dispatch:
     inputs:
