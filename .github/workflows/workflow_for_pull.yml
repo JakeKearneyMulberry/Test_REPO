@@ -9,5 +9,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: $GITHUB_REF
+          ref: "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       - run: echo 'test 1'
