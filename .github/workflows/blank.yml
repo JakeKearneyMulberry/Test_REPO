@@ -18,12 +18,12 @@ jobs:
     needs: Build_And_Test_Partner
     if: contains(github.event.comment.body, 'abracadabra') || github.event.pull_request.merged == true
     steps:
-      #- uses: khan/pull-request-comment-trigger@v1.1.0
-        #id: check
-        #with:
-          #trigger: 'abracadabra'
-      #- run: exit 0
-        #if: steps.check.outputs.triggered == 'false' && github.event.pull_request.merged == false
+      - uses: khan/pull-request-comment-trigger@v1.1.0
+        id: check
+        with:
+          trigger: 'abracadabra'
+      - run: exit 0
+        if: steps.check.outputs.triggered == 'false' && github.event.pull_request.merged == false
       - uses: actions/checkout@v3
       - run: echo 'test 2. '
       
