@@ -1,4 +1,4 @@
-name: REPO Docker Build and Deploy for merges
+name: Workflow for Merges
 on:
   push:
     branches:
