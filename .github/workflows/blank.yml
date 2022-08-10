@@ -6,8 +6,6 @@ on:
       test_comment:
         description: 'Add magic comment to run POC'     
         required: false
-      tags:
-        description: 'Run Partner Repo Scripts' 
   pull_request:
     types: [opened, closed]
   issue_comment:
