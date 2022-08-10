@@ -1,15 +1,12 @@
 name: Mulberry Partner Repo Scripts
 on: 
-  push:
   workflow_dispatch:
     inputs:
       test_comment:
         description: 'Add magic comment to run POC'     
         required: false
   pull_request:
-    types: [opened, closed]
-  issue_comment:
-    types: [created]
+    types: [opened, closed, synchronize]
 jobs:
   Build_And_Test:
     runs-on: ubuntu-latest
