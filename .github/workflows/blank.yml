@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: echo 'test 1'
+      - run: echo 'test 1. '
 
   Docker_Build_Partner:
     runs-on: ubuntu-latest
