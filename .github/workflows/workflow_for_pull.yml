@@ -7,6 +7,7 @@ jobs:
   Build_And_Test_Partner:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      - uses: actions/checkout@v3\
+      - run: echo ${GITHUB_REF}
+      - run: echo ##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})
       - run: echo 'test 1'
