@@ -1,6 +1,5 @@
 name: Mulberry Partner Repo Scripts
 on: 
-  push:
   workflow_dispatch:
     inputs:
       test_comment:
