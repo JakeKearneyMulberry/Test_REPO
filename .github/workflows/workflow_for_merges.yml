@@ -11,6 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo 'test 2. '
+      - run: |
+          if [[ $GITHUB_REF_NAME == 'master' ]]; then
+            echo "ENV_NAME=staging" >> $GITHUB_ENV
+          else
+            echo "ENV_NAME=$GITHUB_REF_NAME" >> $GITHUB_ENV
+          fi
+      - run: printenv
       
   Deploy:
     runs-on: ubuntu-latest
@@ -18,13 +25,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo 'test 3'
-      - run: |
-          if [[ $GITHUB_REF_NAME == 'master' ]]; then
-            echo "ENV_NAME=staging" >> $GITHUB_ENV
-          else
-            echo "ENV_NAME=$GITHUB_REF_NAME" >> $GITHUB_ENV
-          fi
-      - run: echo '$ENV_NAME'
       
   End_to_End_test:
     runs-on: ubuntu-latest
