@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo 'test 1'
-      - run: echo ${{ github.event.comment.body }}
+      - run: echo ${{ github.event.inputs.test_comment }}
 
   Docker_Build_Partner:
     runs-on: ubuntu-latest
