@@ -1,40 +1,15 @@
 name: Workflow for POC
 on:
   workflow_dispatch:
-    inputs:
-      test_comment:
-        description: 'Add magic comment to run POC'     
-        required: false
     
 jobs:
   Docker_Build_Partner:
     runs-on: ubuntu-latest
-    if: github.event.inputs.test_comment == 'abracadabra'
     steps:
       - uses: actions/checkout@v3
-      - name: Set ENV_NAME
-        run: |
-          if [[ $GITHUB_REF_NAME == 'master' ]]; then
-            echo "ENV_NAME=staging" >> $GITHUB_ENV
-          else
-            echo "ENV_NAME=$GITHUB_REF_NAME" >> $GITHUB_ENV
-          fi
      
   Deploy_Partner_to_POC:
     runs-on: ubuntu-latest
     needs: Docker_Build_Partner
-    if: github.event.inputs.test_comment == 'abracadabra'
     steps:
-      - uses: actions/checkout@v3
-      
-  End_to_End_test:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
-    steps:
-      - uses: actions/checkout@v3
-      
-  BDD_Scenarios:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
-    steps: 
       - uses: actions/checkout@v3
