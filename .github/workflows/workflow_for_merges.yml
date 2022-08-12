@@ -1,10 +1,10 @@
-name: Workflow for Merges
+name: Partner Workflow for Merges
 on:
   push:
-    branches:
-      - master
-      - develop
-      - production
+    #branches:
+      #- master
+      #- develop
+      #- production
 jobs:
   Docker_Build:
     runs-on: ubuntu-latest
@@ -25,15 +25,3 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo 'test 3'
-      
-  End_to_End_test:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
-    steps:
-      - uses: actions/checkout@v3
-      
-  BDD_Scenarios:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
-    steps: 
-      - uses: actions/checkout@v3
